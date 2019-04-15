@@ -2,8 +2,10 @@
 
 ## before you start
 Before you actually start developing run these commands in your terminal
+
     git checkout -b"{Name of your branch}"
     git push --set-upstream origin {branchname}
+    
 then when you push your commits they'll be sent to a seperate branch in the main repository.
 
 
