@@ -5,7 +5,7 @@ Before you actually start developing run these commands in your terminal
 
     git checkout -b"{Name of your branch}"
     git push --set-upstream origin {branchname}
-    
+
 then when you push your commits they'll be sent to a seperate branch in the main repository.
 
 
@@ -23,6 +23,8 @@ then to manually connect to it type
 psql -h localhost -U postgres -d bnb {whatever database you want to connect to} 
 -h is for the host
 -U is for what user you want to login as
+
+docker-compose down for when you're done using the container
 
 
 If you want to use local postgres and not run it in a docker container just copy the sql commands from the users.sql file and paste it in psql
