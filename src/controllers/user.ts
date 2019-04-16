@@ -3,7 +3,6 @@ import dotenv from "dotenv";
 import express = require("express");
 import jwt from "jsonwebtoken";
 import { QueryResult, Pool } from "pg";
-import { promises } from "fs";
 
 dotenv.config();
 const pass = process.env.POSTGRES_PASSWORD;
