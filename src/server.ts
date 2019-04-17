@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import rateLimit from "express-rate-limit";
 
+import Listing from './controllers/listing';
 import User from "./controllers/user";
 
 const app = express();
