@@ -35,9 +35,9 @@ app.get("/", (req: express.Request, res: express.Response) => {
 app.post("/users/register", User.registerUser);
 
 // Sign in and generate a auth token
-app.post("/users/signin", User.signInUser);
+app.patch("/users/signin", User.signInUser);
 // sign out user
-app.post("/users/signout", User.signOutUser);
+app.delete("/users/signout", User.signOutUser);
 
 
 app.listen(port, () => {
