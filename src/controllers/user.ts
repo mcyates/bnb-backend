@@ -24,7 +24,7 @@ export class User {
 
 		return token;
 	};
-
+	// finds a user by their auth token and returns their id
 	static findByToken = async (token: string) => {
 		let decoded;
 		try {
@@ -43,6 +43,7 @@ export class User {
 
 	// Generate a user and stores their name, email,
 	// hashed password, genned auth token and current timestamp
+	// requires Name, email, and password
 	static registerUser = async (req: express.Request, res: express.Response) => {
 		const { name, email, password } = req.body;
 		const joined = new Date();
@@ -68,13 +69,15 @@ export class User {
 					.send(`Succes!`);
 			} catch (e) {
 				await client.query("ROLLBACK");
-				throw e;
+				res.status(400).send({});
+				return e;
 			} finally {
 				client.release();
 			}
 		})().catch((e) => console.error(e.stack));
 	};
-	// log user in
+	// log user in and returns auth token
+	//  requires email, password
 	static signInUser = async (req: express.Request, res: express.Response) => {
 		const { email, password } = req.body;
 
@@ -108,6 +111,7 @@ export class User {
 			} catch (e) {
 				await client.query("ROLLBACK");
 				throw e;
+				res.status(400).send({});
 			} finally {
 				client.release();
 			}
@@ -115,6 +119,7 @@ export class User {
 	};
 
 	// sign user out
+	// requires user email
 	static signOutUser = async (req: express.Request, res: express.Response) => {
 		const { email } = req.body;
 		// find user by token and remove token
@@ -125,7 +130,7 @@ export class User {
 				if (error) {
 					throw error;
 				}
-				res.status(200).send("Logged out!");
+				res.status(200).send({msg: "Logged out!"});
 			}
 		);
 	};
