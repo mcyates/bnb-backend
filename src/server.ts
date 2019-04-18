@@ -31,6 +31,8 @@ app.get("/", (req: express.Request, res: express.Response) => {
 	res.status(200).send("success!");
 });
 
+
+
 // USER routes
 // Create a user
 app.post("/users/register", User.registerUser);
