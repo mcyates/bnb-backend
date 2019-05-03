@@ -1129,29 +1129,33 @@
         "version": "35d4b2be9d68f58658af99d0f442e58a7906c3187e2748b171e83463265a2d70",
         "signature": "0e260b9fbfa75caceed063f23daafab409fe41be2adb4e6019a934af45889f0b"
       },
-      "c:/webstuff/bnb-backend/node_modules/@types/bcryptjs/index.d.ts": {
-        "version": "9dfe431ab1485e17a6055e186c49da9d23af74b965f2e99f8acc6c958778608f",
-        "signature": "9dfe431ab1485e17a6055e186c49da9d23af74b965f2e99f8acc6c958778608f"
-      },
       "c:/webstuff/bnb-backend/node_modules/@types/jsonwebtoken/index.d.ts": {
         "version": "daef0ff8d0878f91f68abfdb51e82a5df5b5bc9fc665202e0bd45ddefe640fa2",
         "signature": "daef0ff8d0878f91f68abfdb51e82a5df5b5bc9fc665202e0bd45ddefe640fa2"
-      },
-      "c:/webstuff/bnb-backend/src/utils/generatetoken.ts": {
-        "version": "e70df592dc0c2a496901f869247631878473311963dbfe4192721ee81e6c3d4f",
-        "signature": "44a4fe8847c5f32948c44a5f1b51145fe2a74814939e582b3fc609a794bbb7c3"
       },
       "c:/webstuff/bnb-backend/src/utils/getuserid.ts": {
         "version": "69126ea654993070f422cc25b1aa37e82c54347cfa8cfd51da0eb8a49d8a1f0e",
         "signature": "ac62f1f1103db0ac919504f8a3039af47c7f870b24792b5b7288f908ee734337"
       },
+      "c:/webstuff/bnb-backend/src/resolvers/mutation/listing.ts": {
+        "version": "bfb7bbc5e0474633ff9b1dd6ce0d6c9d8c3a891c3e02f974a9e2ee2236258a1f",
+        "signature": "b634ae0f70060e7eca078dbfc637411750df213b29f45c42d67c5d30613d6ebe"
+      },
+      "c:/webstuff/bnb-backend/node_modules/@types/bcryptjs/index.d.ts": {
+        "version": "9dfe431ab1485e17a6055e186c49da9d23af74b965f2e99f8acc6c958778608f",
+        "signature": "9dfe431ab1485e17a6055e186c49da9d23af74b965f2e99f8acc6c958778608f"
+      },
+      "c:/webstuff/bnb-backend/src/utils/generatetoken.ts": {
+        "version": "e70df592dc0c2a496901f869247631878473311963dbfe4192721ee81e6c3d4f",
+        "signature": "44a4fe8847c5f32948c44a5f1b51145fe2a74814939e582b3fc609a794bbb7c3"
+      },
       "c:/webstuff/bnb-backend/src/resolvers/mutation/user.ts": {
-        "version": "e6985edc5679eefb60a36398a67faefcdfd4ef5fd86be7514c7cb1047d91e708",
-        "signature": "61615083f31d3b296a0b9aa6104c627e1296cba00e3fedcdaea2afcef0786167"
+        "version": "093af92a54f8abe8a7348d5a0121a0757e15714fef297387be850fb1f4f78352",
+        "signature": "d763596761671084c309c9d6ad6813393815324d61e4b533060553b9fc2b7e4b"
       },
       "c:/webstuff/bnb-backend/src/resolvers/index.ts": {
-        "version": "ba1b6565189bd2e30d6501503e86c3effc98bf1d9119635810c3e0d7d899b80b",
-        "signature": "46fd3a287f56908e97939d87185e5c73170913c73f2328ae26660c3ef862a836"
+        "version": "ad3aafbec14f8e7278ecdcc160abf43b7da3b1c766929adc64a357df53f70eaf",
+        "signature": "b2a36c764546793748b5193167c87cecde2100e25f743dfa59809a02e11c31da"
       },
       "c:/webstuff/bnb-backend/src/index.ts": {
         "version": "4dc4b74cefd7403b38c497de249e1ba47ebcb1ffa6fb2228a4772f515176d563",
@@ -2982,21 +2986,26 @@
         "c:/webstuff/bnb-backend/node_modules/@types/node/util.d.ts",
         "c:/webstuff/bnb-backend/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "c:/webstuff/bnb-backend/node_modules/@types/bcryptjs/index.d.ts": [
-        "c:/webstuff/bnb-backend/node_modules/@types/node/util.d.ts",
-        "c:/webstuff/bnb-backend/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
       "c:/webstuff/bnb-backend/node_modules/@types/jsonwebtoken/index.d.ts": [
         "c:/webstuff/bnb-backend/node_modules/@types/node/ts3.2/index.d.ts",
         "c:/webstuff/bnb-backend/node_modules/@types/node/util.d.ts",
         "c:/webstuff/bnb-backend/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "c:/webstuff/bnb-backend/src/utils/generatetoken.ts": [
+      "c:/webstuff/bnb-backend/src/utils/getuserid.ts": [
         "c:/webstuff/bnb-backend/node_modules/@types/jsonwebtoken/index.d.ts",
         "c:/webstuff/bnb-backend/node_modules/@types/node/util.d.ts",
         "c:/webstuff/bnb-backend/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "c:/webstuff/bnb-backend/src/utils/getuserid.ts": [
+      "c:/webstuff/bnb-backend/src/resolvers/mutation/listing.ts": [
+        "c:/webstuff/bnb-backend/src/utils/getuserid.ts",
+        "c:/webstuff/bnb-backend/node_modules/@types/node/util.d.ts",
+        "c:/webstuff/bnb-backend/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/webstuff/bnb-backend/node_modules/@types/bcryptjs/index.d.ts": [
+        "c:/webstuff/bnb-backend/node_modules/@types/node/util.d.ts",
+        "c:/webstuff/bnb-backend/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/webstuff/bnb-backend/src/utils/generatetoken.ts": [
         "c:/webstuff/bnb-backend/node_modules/@types/jsonwebtoken/index.d.ts",
         "c:/webstuff/bnb-backend/node_modules/@types/node/util.d.ts",
         "c:/webstuff/bnb-backend/node_modules/@types/node/ts3.2/util.d.ts"
@@ -3011,6 +3020,7 @@
       "c:/webstuff/bnb-backend/src/resolvers/index.ts": [
         "c:/webstuff/bnb-backend/node_modules/graphql-tools/dist/index.d.ts",
         "c:/webstuff/bnb-backend/src/resolvers/query.ts",
+        "c:/webstuff/bnb-backend/src/resolvers/mutation/listing.ts",
         "c:/webstuff/bnb-backend/src/resolvers/mutation/user.ts",
         "c:/webstuff/bnb-backend/node_modules/@types/node/util.d.ts",
         "c:/webstuff/bnb-backend/node_modules/@types/node/ts3.2/util.d.ts"
@@ -4774,12 +4784,12 @@
       "c:/webstuff/bnb-backend/src/resolvers/query.ts": [
         "c:/webstuff/bnb-backend/node_modules/graphql-yoga/dist/types.d.ts"
       ],
-      "c:/webstuff/bnb-backend/node_modules/@types/bcryptjs/index.d.ts": [
+      "c:/webstuff/bnb-backend/node_modules/@types/jsonwebtoken/index.d.ts": [
+        "c:/webstuff/bnb-backend/node_modules/@types/node/ts3.2/index.d.ts",
         "c:/webstuff/bnb-backend/node_modules/@types/node/util.d.ts",
         "c:/webstuff/bnb-backend/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "c:/webstuff/bnb-backend/node_modules/@types/jsonwebtoken/index.d.ts": [
-        "c:/webstuff/bnb-backend/node_modules/@types/node/ts3.2/index.d.ts",
+      "c:/webstuff/bnb-backend/node_modules/@types/bcryptjs/index.d.ts": [
         "c:/webstuff/bnb-backend/node_modules/@types/node/util.d.ts",
         "c:/webstuff/bnb-backend/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -5078,15 +5088,16 @@
       "c:/webstuff/bnb-backend/node_modules/prisma-binding/dist/index.d.ts",
       "c:/webstuff/bnb-backend/src/prisma.ts",
       "c:/webstuff/bnb-backend/src/resolvers/query.ts",
-      "c:/webstuff/bnb-backend/node_modules/@types/bcryptjs/index.d.ts",
       "c:/webstuff/bnb-backend/node_modules/@types/jsonwebtoken/index.d.ts",
-      "c:/webstuff/bnb-backend/src/index.ts",
+      "c:/webstuff/bnb-backend/src/utils/getuserid.ts",
+      "c:/webstuff/bnb-backend/node_modules/@types/bcryptjs/index.d.ts",
+      "c:/webstuff/bnb-backend/src/utils/generatetoken.ts",
       "c:/webstuff/bnb-backend/node_modules/@types/graphql-deduplicator/index.d.ts",
       "c:/webstuff/bnb-backend/node_modules/@types/zen-observable/index.d.ts",
-      "c:/webstuff/bnb-backend/src/utils/generatetoken.ts",
-      "c:/webstuff/bnb-backend/src/utils/getuserid.ts",
+      "c:/webstuff/bnb-backend/src/resolvers/mutation/listing.ts",
       "c:/webstuff/bnb-backend/src/resolvers/mutation/user.ts",
-      "c:/webstuff/bnb-backend/src/resolvers/index.ts"
+      "c:/webstuff/bnb-backend/src/resolvers/index.ts",
+      "c:/webstuff/bnb-backend/src/index.ts"
     ]
   },
   "version": "3.4.1"

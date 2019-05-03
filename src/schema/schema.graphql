@@ -29,6 +29,9 @@ type Mutation {
 	createListing(data: CreateListingInput): Listing!
 	updateListing(id: ID!, data: UpdateListingInput!): Listing!
 	deleteListing(id: ID!): Listing!
+	createReview(data: CreateReviewInput): Review!
+	updateReview(id: ID!, data: UpdateReviewInput): Review!
+	deleteReview(id: ID!): Review!
 }
 
 input CreateUserInput {
@@ -79,6 +82,15 @@ input UpdateListingInput {
 	baths: Int!
 	amenities: String
 	published: Boolean!
+}
+
+input CreateReviewInput {
+	text: String!
+	author: ID!
+	post: ID!
+}
+input UpdateReviewInput {
+	text: String
 }
 
 type User {
