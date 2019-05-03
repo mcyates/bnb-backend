@@ -1,0 +1,79 @@
+type Query {
+  users(query: String, first: Int, skip: Int, after: ID, orderBy: UserOrderByInput): [User!]!
+  listings(query: String, first: Int, skip: Int, after: ID, orderBy: UserOrderByInput): [Listing!]!
+  reviews(first: Int, skip: Int, after: ID, orderBy: UserOrderByInput): [Review!]!
+}
+
+type Mutation {
+  createUser(data: CreateUserInput): User!
+}
+
+input CreateUserInput {
+	name: String!
+	email: String!
+	password: String!
+}
+
+type User {
+	id: ID!
+	name: String!
+	email: String!
+	password: String!
+  listings: [Listing!]!
+  reviews: [Review!]!
+	createdAt: String!
+	updatedAt: String!
+}
+
+type Review {
+	id: ID!
+  author: User!
+  Listing: Listing!
+  rating: Float!
+	text: String!
+	createdAt: String!
+	updatedAt: String!
+}
+
+type Listing {
+	id: ID!
+  author: User!
+  reviews: [Review!]!
+	name: String!
+	category: ListingCategory
+	hero: String!
+	gallery: [String!]!
+	description: String!
+	price: Int!
+	guests: Int!
+	beds: Int!
+	baths: Int!
+	amenities: String
+  published: Boolean!
+	createdAt: String!
+	updatedAt: String!
+}
+
+enum ListingCategory {
+	Entire_Apartment
+	Entire_House
+	Entire_Villa
+	Boat
+	Private_Room
+	Shared_Room
+}
+
+enum UserOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  email_ASC
+  email_DESC
+  password_ASC
+  password_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}

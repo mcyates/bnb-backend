@@ -1,0 +1,40 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:latest
+    # build: ./postgres
+    container_name: "pg-docker"
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_HOST=localhost
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres:/var/lib/postgresql/data
+  prisma:
+    image: prismagraphql/prisma:1.32
+    restart: always
+    ports:
+    - "4466:4466"
+    environment:
+      PRISMA_CONFIG: |
+        port: 4466
+        # uncomment the next line and provide the env var PRISMA_MANAGEMENT_API_SECRET=my-secret to activate cluster security
+        # managementApiSecret: my-secret
+        databases:
+          default:
+            connector: postgres
+            host: postgres
+            database: postgres
+            schema: public
+            user: postgres
+            password: docker
+            ssl: false
+            rawAccess: true
+            port: '5432'
+            migrations: true
+volumes: 
+  postgres:
