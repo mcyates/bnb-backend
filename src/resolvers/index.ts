@@ -1,12 +1,16 @@
-import { IResolvers } from 'graphql-tools';
-import Query from './Query'
-import { user} from './Mutation/user';
+import { IResolvers } from "graphql-tools";
+import Query from "./Query";
+import { listing } from './Mutation/listing';
+import { user } from "./Mutation/user";
+import { review } from "./Mutation/review";
 
 const resolvers: IResolvers = {
-  Query,
-  Mutation: {
-    ...user
-  }
-}
+	Query,
+	Mutation: {
+    ...listing,
+    ...user,
+    ...review
+	}
+};
 
-export {resolvers};
+export { resolvers };
