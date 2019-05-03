@@ -1,0 +1,38 @@
+type User {
+  id: ID! @id
+  listings: [Listing!]! @relation(name: "ListingToUser", onDelete: CASCADE)
+  reviews: [Review!]! @relation(name: "ReviewToUser", onDelete: CASCADE)
+  name: String!
+  email: String! @unique
+  password: String! @unique
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Review {
+  id: ID! @id
+  author: User! @relation(name: "ReviewToUser", onDelete: SET_NULL)
+  listing: Listing! @relation(name: "ReviewToListing", onDelete: SET_NULL)
+  text: String!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Listing {
+  id: ID! @id
+  author: User! @relation(link: INLINE, name: "ListingToUser", onDelete: SET_NULL)
+  reviews: [Review!]! @relation(name: "ReviewToListing", onDelete: CASCADE)
+  name: String! @unique
+  category: String!
+  hero: String!
+  gallery: String!
+  description: String!
+  price: Int!
+  guests: Int!
+  beds: Int!
+  baths: Int!
+  amenities: String
+  published: Boolean!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
