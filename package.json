@@ -21,19 +21,24 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "env-cmd": "^8.0.2",
+    "express-rate-limit": "^3.5.0",
     "graphql": "^14.2.1",
     "graphql-import": "^0.7.1",
     "graphql-yoga": "^1.17.4",
+    "helmet": "^3.17.0",
     "jsonwebtoken": "^8.5.1",
     "nodemon": "^1.19.0",
     "prisma-binding": "^2.3.10",
     "ts-node": "^8.1.0",
-    "typescript": "^3.4.5"
+    "typescript": "^3.4.5",
+    "ws": "^7.0.0"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.25",
     "@types/bcryptjs": "^2.4.2",
+    "@types/express-rate-limit": "^3.3.0",
     "@types/graphql": "^14.2.0",
+    "@types/helmet": "0.0.43",
     "@types/jsonwebtoken": "^8.3.2",
     "@types/ws": "^6.0.1"
   }
