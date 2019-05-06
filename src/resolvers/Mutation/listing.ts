@@ -3,19 +3,19 @@ import getUserId from '../../utils/getUserId';
 export const listing = {
   async createListing(
 		parent: any,
-		args: { data: { author: string; published: boolean } },
+		args: { data: any },
 		{ prisma, request }: any,
 		info: any
 	) {
 		const userId = getUserId(request);
 
 		const { author, published } = args.data;
-		const userExists = await prisma.exists.User({ id: author });
+		const userExists = await prisma.exists.User({ id: userId });
 
 		if (!userExists) {
 			throw new Error("User not found");
 		}
-
+		console.log('1')
 		const Listing = await prisma.mutation
 			.createListing(
 				{
@@ -31,7 +31,6 @@ export const listing = {
 				info
 			)
 			.catch((e: void) => console.error(e));
-
 		return Listing;
 	},
 	async updateListing(

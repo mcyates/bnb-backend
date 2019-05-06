@@ -29,7 +29,7 @@ type Query {
 
 type Mutation {
 	createBooking(listing: ID!, data: CreateBookingInput): Booking!
-	updateBooking(id: ID!, data: ): Booking!
+	updateBooking(id: ID!, data: UpdateBookingInput): Booking!
 	deleteBooking(id: ID!): Booking!
 	createListing(data: CreateListingInput): Listing!
 	updateListing(id: ID!, data: UpdateListingInput!): Listing!
@@ -77,30 +77,30 @@ input UpdateUserInput {
 
 input CreateListingInput {
 	name: String!
-	category: ListingCategory
-	hero: String!
-	gallery: [String!]!
-	description: String!
+	category: String
+	hero: String
+	gallery: [String]
+	description: String
 	price: Int!
-	guests: Int!
-	beds: Int!
-	baths: Int!
+	guests: Int
+	beds: Int
+	baths: Int
 	amenities: String
 	published: Boolean!
 }
 
 input UpdateListingInput {
-	name: String!
-	category: ListingCategory
-	hero: String!
-	gallery: [String!]!
-	description: String!
-	price: Int!
-	guests: Int!
-	beds: Int!
-	baths: Int!
+	name: String
+	category: String
+	hero: String
+	gallery: [String]
+	description: String
+	price: Int
+	guests: Int
+	beds: Int
+	baths: Int
 	amenities: String
-	published: Boolean!
+	published: Boolean
 }
 
 input CreateReviewInput {
@@ -140,7 +140,7 @@ type Listing {
 	reviews: [Review!]!
 	booking: Booking
 	name: String!
-	category: ListingCategory
+	category: String!
 	hero: String!
 	gallery: [String!]!
 	description: String!
@@ -154,21 +154,12 @@ type Listing {
 	updatedAt: String!
 }
 
-type booking {
+type Booking {
 	id: ID!
 	author: User!
 	listing: Listing!
 	startDate: String!
 	endDate: String!
-}
-
-enum ListingCategory {
-	Entire_Apartment
-	Entire_House
-	Entire_Villa
-	Boat
-	Private_Room
-	Shared_Room
 }
 
 enum UserOrderByInput {

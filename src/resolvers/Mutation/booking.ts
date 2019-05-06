@@ -24,17 +24,20 @@ export const booking = {
 
 		const booking = await prisma.mutation.createBooking(
 			{
-				...data,
-				author: {
-					connect: {
-						id: userId
-					}
-				},
-				listing: {
-					connect: {
-						id: listing
-					}
-				}
+        data: {
+
+          ...data,
+          author: {
+            connect: {
+              id: userId
+            }
+          },
+          listing: {
+            connect: {
+              id: listing
+            }
+          }
+        }
 			},
 			info
 		);

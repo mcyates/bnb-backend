@@ -25,14 +25,14 @@ type Listing {
   reviews: [Review!]! @relation(name: "ReviewToListing", onDelete: CASCADE)
   booking: Booking @relation(link: TABLE,name: "BookingToListing", onDelete: CASCADE)
   name: String! @unique
-  category: String!
-  hero: String!
-  gallery: String!
-  description: String!
-  price: Int!
-  guests: Int!
-  beds: Int!
-  baths: Int!
+  category: String
+  hero: String
+  gallery: String
+  description: String
+  price: Int
+  guests: Int
+  beds: Int
+  baths: Int
   amenities: String
   published: Boolean!
   createdAt: DateTime! @createdAt
