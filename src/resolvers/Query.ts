@@ -1,5 +1,6 @@
 import prisma from "../prisma";
 import { Context } from "graphql-yoga/dist/types";
+import getUserId from "../utils/getUserId";
 
 const Query = {
 	async users(
@@ -85,17 +86,46 @@ const Query = {
 		{ prisma }: Context,
 		info: any
 	) {
-    const {  first, skip, after, orderBy } = args;
-    
-    const opArgs: any = {
+		const { first, skip, after, orderBy } = args;
+
+		const opArgs: any = {
 			first,
 			skip,
 			after,
 			orderBy
-    };
-    
+		};
+
 		return prisma.query.reviews(opArgs, info);
 	},
+	async mybookings(
+		parent: any,
+		args: {
+			first: number;
+			skip: number;
+			after: string;
+			orderBy: string;
+		},
+		{ prisma, request }: Context,
+		info: any
+	) {
+		const { first, skip, after, orderBy } = args;
+		const userId = getUserId(request, true);
+
+		const opArgs: any = {
+			where: {
+				author: {
+					id: userId
+				}
+			},
+			first,
+			skip,
+			after,
+			orderBy
+		}
+		const bookings = await prisma.query.bookings(opArgs, info);
+
+		return bookings;
+	}
 };
 
 export default Query;

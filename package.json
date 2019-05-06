@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "env-cmd ./config/dev.env node ./dist/index.js",
     "get-schema": "graphql get-schema -p prisma",
+    "docker:up": "cd ./prisma && docker-compose up -d ",
+    "docker:down": "cd ./prisma/ && docker-compose down",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
