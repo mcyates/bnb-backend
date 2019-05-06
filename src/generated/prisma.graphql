@@ -1,5 +1,5 @@
 # source: http://localhost:4466
-# timestamp: Mon May 06 2019 15:18:09 GMT-0400 (Eastern Daylight Time)
+
 
 type AggregateBooking {
   count: Int!

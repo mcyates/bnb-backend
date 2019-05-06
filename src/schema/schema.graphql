@@ -162,6 +162,7 @@ type Booking {
 	endDate: String!
 }
 
+
 enum UserOrderByInput {
 	id_ASC
 	id_DESC
