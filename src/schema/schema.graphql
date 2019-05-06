@@ -19,19 +19,31 @@ type Query {
 		after: ID
 		orderBy: UserOrderByInput
 	): [Review!]!
+	mybookings(
+		first: Int
+		skip: Int
+		after: ID
+		orderBy: BookingOrderByInput
+	): [Booking!]!
 }
 
 type Mutation {
-	createUser(data: CreateUserInput): AuthPayload!
-	loginUser(data: LoginUserInput): AuthPayload!
-	updateUser(data: UpdateUserInput!): User!
-	deleteUser: User!
+	createBooking(data: CreateBookingInput): Booking!
 	createListing(data: CreateListingInput): Listing!
 	updateListing(id: ID!, data: UpdateListingInput!): Listing!
 	deleteListing(id: ID!): Listing!
 	createReview(data: CreateReviewInput): Review!
 	updateReview(id: ID!, data: UpdateReviewInput): Review!
 	deleteReview(id: ID!): Review!
+	createUser(data: CreateUserInput): AuthPayload!
+	loginUser(data: LoginUserInput): AuthPayload!
+	updateUser(data: UpdateUserInput!): User!
+	deleteUser: User!
+}
+
+input CreateBookingInput {
+	startDate: String!
+	endDate: String!
 }
 
 input CreateUserInput {
@@ -100,6 +112,7 @@ type User {
 	password: String!
 	listings: [Listing!]!
 	reviews: [Review!]!
+	booking: Booking!
 	createdAt: String!
 	updatedAt: String!
 }
@@ -118,6 +131,7 @@ type Listing {
 	id: ID!
 	author: User!
 	reviews: [Review!]!
+	booking: Booking
 	name: String!
 	category: ListingCategory
 	hero: String!
@@ -131,6 +145,14 @@ type Listing {
 	published: Boolean!
 	createdAt: String!
 	updatedAt: String!
+}
+
+type booking {
+	id: ID!
+	author: User!
+	listing: Listing!
+	startDate: String!
+	endDate: String!
 }
 
 enum ListingCategory {
@@ -155,4 +177,13 @@ enum UserOrderByInput {
 	createdAt_DESC
 	updatedAt_ASC
 	updatedAt_DESC
+}
+
+enum BookingOrderByInput {
+	id_ASC
+	id_DESC
+	startDate_ASC
+	startDate_DESC
+	endDate_ASC
+	endDate_DESC
 }
