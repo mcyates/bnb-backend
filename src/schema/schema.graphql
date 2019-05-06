@@ -28,7 +28,9 @@ type Query {
 }
 
 type Mutation {
-	createBooking(data: CreateBookingInput): Booking!
+	createBooking(listing: ID!, data: CreateBookingInput): Booking!
+	updateBooking(id: ID!, data: ): Booking!
+	deleteBooking(id: ID!): Booking!
 	createListing(data: CreateListingInput): Listing!
 	updateListing(id: ID!, data: UpdateListingInput!): Listing!
 	deleteListing(id: ID!): Listing!
@@ -44,6 +46,11 @@ type Mutation {
 input CreateBookingInput {
 	startDate: String!
 	endDate: String!
+}
+
+input UpdateBookingInput {
+	startDate: String
+	endDate: String
 }
 
 input CreateUserInput {
@@ -99,7 +106,7 @@ input UpdateListingInput {
 input CreateReviewInput {
 	text: String!
 	author: ID!
-	post: ID!
+	listing: ID!
 }
 input UpdateReviewInput {
 	text: String
