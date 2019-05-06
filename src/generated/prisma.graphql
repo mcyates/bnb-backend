@@ -1,5 +1,5 @@
 # source: http://localhost:4466
-# timestamp: Mon May 06 2019 12:53:27 GMT-0400 (Eastern Daylight Time)
+
 
 type AggregateBooking {
   count: Int!
@@ -483,14 +483,14 @@ type Listing implements Node {
   reviews(where: ReviewWhereInput, orderBy: ReviewOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Review!]
   booking: Booking
   name: String!
-  category: String!
-  hero: String!
-  gallery: String!
-  description: String!
-  price: Int!
-  guests: Int!
-  beds: Int!
-  baths: Int!
+  category: String
+  hero: String
+  gallery: String
+  description: String
+  price: Int
+  guests: Int
+  beds: Int
+  baths: Int
   amenities: String
   published: Boolean!
   createdAt: DateTime!
@@ -510,14 +510,14 @@ type ListingConnection {
 input ListingCreateInput {
   id: ID
   name: String!
-  category: String!
-  hero: String!
-  gallery: String!
-  description: String!
-  price: Int!
-  guests: Int!
-  beds: Int!
-  baths: Int!
+  category: String
+  hero: String
+  gallery: String
+  description: String
+  price: Int
+  guests: Int
+  beds: Int
+  baths: Int
   amenities: String
   published: Boolean!
   author: UserCreateOneWithoutListingsInput!
@@ -543,14 +543,14 @@ input ListingCreateOneWithoutReviewsInput {
 input ListingCreateWithoutAuthorInput {
   id: ID
   name: String!
-  category: String!
-  hero: String!
-  gallery: String!
-  description: String!
-  price: Int!
-  guests: Int!
-  beds: Int!
-  baths: Int!
+  category: String
+  hero: String
+  gallery: String
+  description: String
+  price: Int
+  guests: Int
+  beds: Int
+  baths: Int
   amenities: String
   published: Boolean!
   reviews: ReviewCreateManyWithoutListingInput
@@ -560,14 +560,14 @@ input ListingCreateWithoutAuthorInput {
 input ListingCreateWithoutBookingInput {
   id: ID
   name: String!
-  category: String!
-  hero: String!
-  gallery: String!
-  description: String!
-  price: Int!
-  guests: Int!
-  beds: Int!
-  baths: Int!
+  category: String
+  hero: String
+  gallery: String
+  description: String
+  price: Int
+  guests: Int
+  beds: Int
+  baths: Int
   amenities: String
   published: Boolean!
   author: UserCreateOneWithoutListingsInput!
@@ -577,14 +577,14 @@ input ListingCreateWithoutBookingInput {
 input ListingCreateWithoutReviewsInput {
   id: ID
   name: String!
-  category: String!
-  hero: String!
-  gallery: String!
-  description: String!
-  price: Int!
-  guests: Int!
-  beds: Int!
-  baths: Int!
+  category: String
+  hero: String
+  gallery: String
+  description: String
+  price: Int
+  guests: Int
+  beds: Int
+  baths: Int
   amenities: String
   published: Boolean!
   author: UserCreateOneWithoutListingsInput!
@@ -634,14 +634,14 @@ enum ListingOrderByInput {
 type ListingPreviousValues {
   id: ID!
   name: String!
-  category: String!
-  hero: String!
-  gallery: String!
-  description: String!
-  price: Int!
-  guests: Int!
-  beds: Int!
-  baths: Int!
+  category: String
+  hero: String
+  gallery: String
+  description: String
+  price: Int
+  guests: Int
+  beds: Int
+  baths: Int
   amenities: String
   published: Boolean!
   createdAt: DateTime!
