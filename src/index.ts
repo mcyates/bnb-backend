@@ -27,6 +27,10 @@ server.express.enable("trust proxy");
 
 server.express.use(limiter);
 
+// const options: any = {
+// 	uploads: 
+// }
+
 server.start(() => {
 	console.log("Started");
 });

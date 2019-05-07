@@ -27,7 +27,6 @@ type Listing {
   name: String! @unique
   category: String
   hero: String
-  gallery: String
   description: String
   price: Int
   guests: Int

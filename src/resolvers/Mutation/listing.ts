@@ -1,5 +1,27 @@
 import getUserId from '../../utils/getUserId';
 
+
+const storeUpload = async ({ stream, filename }): Promise<any> => {
+  const id = shortid.generate()
+  const path = `${uploadDir}/${id}-${filename}`
+
+  return new Promise((resolve, reject) =>
+    stream
+      .pipe(createWriteStream(path))
+      .on('finish', () => resolve({ id, path }))
+      .on('error', reject),
+  )
+}
+
+
+const processUpload = async upload => {
+  const { stream, filename, mimetype, encoding } = await upload
+  const { id, path } = await storeUpload({ stream, filename })
+  return recordFile({ id, filename, mimetype, encoding, path })
+}
+
+
+
 export const listing = {
   async createListing(
 		parent: any,
@@ -9,7 +31,7 @@ export const listing = {
 	) {
 		const userId = getUserId(request);
 
-		const { author, published } = args.data;
+		const { author, published, hero } = args.data;
 		const userExists = await prisma.exists.User({ id: userId });
 
 		if (!userExists) {
