@@ -3,6 +3,7 @@ import helmet from "helmet";
 import rateLimit from "express-rate-limit";
 import prisma from "./prisma";
 import { resolvers } from "./resolvers/index";
+
 const pubsub = new PubSub();
 
 const server: GraphQLServer = new GraphQLServer({
@@ -26,10 +27,6 @@ server.express.use(helmet());
 server.express.enable("trust proxy");
 
 server.express.use(limiter);
-
-// const options: any = {
-// 	uploads: 
-// }
 
 server.start(() => {
 	console.log("Started");

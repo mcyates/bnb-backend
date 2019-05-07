@@ -121,6 +121,10 @@
         "version": "63b66918290d794f73832a6d0325be5026236674fe8c0cb0b68d162000d7bbe8",
         "signature": "63b66918290d794f73832a6d0325be5026236674fe8c0cb0b68d162000d7bbe8"
       },
+      "c:/webstuff/bnb-backend/src/cloudinary.ts": {
+        "version": "22345ef74a19c9d55e3136d8659b4b2efbc1a7a0b257a131ba30b6a360c2ff7b",
+        "signature": "887fdf2f67e166f2defc1f88eba55b5d6f1b7ae07f8fa02259887df4cbb51e92"
+      },
       "c:/webstuff/bnb-backend/node_modules/@types/node/globals.d.ts": {
         "version": "3af134c0480536f901a30692d216bd29712a3869fe38a7be066ea1eef34a8561",
         "signature": "3af134c0480536f901a30692d216bd29712a3869fe38a7be066ea1eef34a8561"
@@ -1142,7 +1146,7 @@
         "signature": "ac62f1f1103db0ac919504f8a3039af47c7f870b24792b5b7288f908ee734337"
       },
       "c:/webstuff/bnb-backend/src/resolvers/mutation/booking.ts": {
-        "version": "1da9a3d2fd16b54211df503a443a8067dca98b4008803125a5faf5ccdbfc6d18",
+        "version": "85e1a0596b6776f7bb7fdd78fa87668aa28859546c8a473205db6a9fc317c6c5",
         "signature": "0bb20dd2cc21b0a3d3c8be86b04c92a771bbbdc8b01f2249038c576c146a8956"
       },
       "c:/webstuff/bnb-backend/src/resolvers/query.ts": {
@@ -1150,8 +1154,8 @@
         "signature": "326543e331f7e1905311cabb986919a3e82aa15cc51880dc2b0696c66bf759c8"
       },
       "c:/webstuff/bnb-backend/src/resolvers/mutation/listing.ts": {
-        "version": "178af422b736a42124b3a80e4291e684a38bf4a082a0814b1fe0d0e31e7436fe",
-        "signature": "037d09689225c5a4279cdb9abef4245f96616bc9a714295c5e26456e9d9a8c90"
+        "version": "7b104b9a3e22982cbea86d34ab7b139f568363462a051c09e7e628bf4d1f5827",
+        "signature": "9c16093379f5336c8163d606185530c00437da4e39c6177d553245e9a2d30df5"
       },
       "c:/webstuff/bnb-backend/node_modules/@types/bcryptjs/index.d.ts": {
         "version": "9dfe431ab1485e17a6055e186c49da9d23af74b965f2e99f8acc6c958778608f",
@@ -1174,7 +1178,7 @@
         "signature": "b2a36c764546793748b5193167c87cecde2100e25f743dfa59809a02e11c31da"
       },
       "c:/webstuff/bnb-backend/src/index.ts": {
-        "version": "11540e59acea35534b75c4eab19a20ab9ff7257ee145b5cbb22ac89f51dd642c",
+        "version": "ceb7350482948c333e06d977603696638e66435744c4fb8c010923575375d2f7",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6"
       },
       "c:/webstuff/bnb-backend/node_modules/@types/graphql-deduplicator/index.d.ts": {
@@ -1187,6 +1191,12 @@
       }
     },
     "options": {
+      "baseUrl": "C:/webStuff/bnb-backend",
+      "paths": {
+        "*": [
+          "types/*"
+        ]
+      },
       "target": 1,
       "module": 1,
       "outDir": "C:/webStuff/bnb-backend/dist",
@@ -1316,6 +1326,10 @@
         "c:/webstuff/bnb-backend/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "c:/users/marigi/appdata/roaming/npm/node_modules/typescript/lib/lib.esnext.bigint.d.ts": [
+        "c:/webstuff/bnb-backend/node_modules/@types/node/util.d.ts",
+        "c:/webstuff/bnb-backend/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "c:/webstuff/bnb-backend/src/cloudinary.ts": [
         "c:/webstuff/bnb-backend/node_modules/@types/node/util.d.ts",
         "c:/webstuff/bnb-backend/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -3030,6 +3044,7 @@
       ],
       "c:/webstuff/bnb-backend/src/resolvers/mutation/listing.ts": [
         "c:/webstuff/bnb-backend/src/utils/getuserid.ts",
+        "c:/webstuff/bnb-backend/src/cloudinary.ts",
         "c:/webstuff/bnb-backend/node_modules/@types/node/util.d.ts",
         "c:/webstuff/bnb-backend/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -5142,17 +5157,18 @@
       "c:/webstuff/bnb-backend/src/prisma.ts",
       "c:/webstuff/bnb-backend/node_modules/@types/jsonwebtoken/index.d.ts",
       "c:/webstuff/bnb-backend/src/utils/getuserid.ts",
+      "c:/webstuff/bnb-backend/src/resolvers/mutation/booking.ts",
       "c:/webstuff/bnb-backend/src/resolvers/query.ts",
-      "c:/webstuff/bnb-backend/src/resolvers/mutation/listing.ts",
       "c:/webstuff/bnb-backend/node_modules/@types/bcryptjs/index.d.ts",
       "c:/webstuff/bnb-backend/src/utils/generatetoken.ts",
       "c:/webstuff/bnb-backend/src/resolvers/mutation/user.ts",
       "c:/webstuff/bnb-backend/src/resolvers/mutation/review.ts",
-      "c:/webstuff/bnb-backend/src/resolvers/index.ts",
-      "c:/webstuff/bnb-backend/src/index.ts",
       "c:/webstuff/bnb-backend/node_modules/@types/graphql-deduplicator/index.d.ts",
       "c:/webstuff/bnb-backend/node_modules/@types/zen-observable/index.d.ts",
-      "c:/webstuff/bnb-backend/src/resolvers/mutation/booking.ts"
+      "c:/webstuff/bnb-backend/src/cloudinary.ts",
+      "c:/webstuff/bnb-backend/src/resolvers/mutation/listing.ts",
+      "c:/webstuff/bnb-backend/src/resolvers/index.ts",
+      "c:/webstuff/bnb-backend/src/index.ts"
     ]
   },
   "version": "3.4.1"

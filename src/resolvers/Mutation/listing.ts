@@ -1,29 +1,8 @@
-import getUserId from '../../utils/getUserId';
-
-
-const storeUpload = async ({ stream, filename }): Promise<any> => {
-  const id = shortid.generate()
-  const path = `${uploadDir}/${id}-${filename}`
-
-  return new Promise((resolve, reject) =>
-    stream
-      .pipe(createWriteStream(path))
-      .on('finish', () => resolve({ id, path }))
-      .on('error', reject),
-  )
-}
-
-
-const processUpload = async upload => {
-  const { stream, filename, mimetype, encoding } = await upload
-  const { id, path } = await storeUpload({ stream, filename })
-  return recordFile({ id, filename, mimetype, encoding, path })
-}
-
-
+import getUserId from "../../utils/getUserId";
+import { uploadImage } from "../../cloudinary";
 
 export const listing = {
-  async createListing(
+	async createListing(
 		parent: any,
 		args: { data: any },
 		{ prisma, request }: any,
@@ -37,7 +16,11 @@ export const listing = {
 		if (!userExists) {
 			throw new Error("User not found");
 		}
-		console.log('1')
+
+		if (hero) {
+			args.data.hero = uploadImage(hero);
+		}
+
 		const Listing = await prisma.mutation
 			.createListing(
 				{
@@ -59,13 +42,17 @@ export const listing = {
 		parent: any,
 		args: {
 			id: string;
-			data: { title: string; body: string; published: boolean };
+			data: any;
 		},
 		{ prisma, request }: any,
 		info: any
 	) {
 		const { id, data } = args;
 		const userId = getUserId(request);
+
+		if (data.hero) {
+			data.hero = uploadImage(data.hero);
+		}
 
 		const ListingExists = await prisma.exists.Listing({
 			id,
@@ -130,5 +117,5 @@ export const listing = {
 			.catch((e: void) => console.error(e));
 
 		return Listing;
-	},
-}
+	}
+};
