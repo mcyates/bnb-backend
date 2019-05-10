@@ -39,7 +39,7 @@ type Mutation {
 	createReview(data: CreateReviewInput): Review!
 	updateReview(id: ID!, data: UpdateReviewInput): Review!
 	deleteReview(id: ID!): Review!
-	createUser(data: CreateUserInput): AuthPayload!
+	createUser(data: CreateUserInput!): AuthPayload!
 	loginUser(data: LoginUserInput): AuthPayload!
 	updateUser(data: UpdateUserInput!): User!
 	deleteUser: User!
