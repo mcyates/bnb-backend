@@ -1,4 +1,5 @@
 # source: http://localhost:4466
+# timestamp: Thu May 09 2019 16:07:33 GMT-0400 (Eastern Daylight Time)
 
 
 type AggregateBooking {
@@ -485,7 +486,7 @@ type Listing implements Node {
   name: String!
   category: String
   hero: String
-  gallery: String
+
   description: String
   price: Int
   guests: Int
@@ -512,7 +513,7 @@ input ListingCreateInput {
   name: String!
   category: String
   hero: String
-  gallery: String
+
   description: String
   price: Int
   guests: Int
@@ -545,7 +546,7 @@ input ListingCreateWithoutAuthorInput {
   name: String!
   category: String
   hero: String
-  gallery: String
+
   description: String
   price: Int
   guests: Int
@@ -562,7 +563,7 @@ input ListingCreateWithoutBookingInput {
   name: String!
   category: String
   hero: String
-  gallery: String
+
   description: String
   price: Int
   guests: Int
@@ -579,7 +580,7 @@ input ListingCreateWithoutReviewsInput {
   name: String!
   category: String
   hero: String
-  gallery: String
+
   description: String
   price: Int
   guests: Int
@@ -609,8 +610,6 @@ enum ListingOrderByInput {
   category_DESC
   hero_ASC
   hero_DESC
-  gallery_ASC
-  gallery_DESC
   description_ASC
   description_DESC
   price_ASC
@@ -636,7 +635,7 @@ type ListingPreviousValues {
   name: String!
   category: String
   hero: String
-  gallery: String
+
   description: String
   price: Int
   guests: Int
@@ -817,46 +816,6 @@ input ListingScalarWhereInput {
 
   """All values not ending with the given string."""
   hero_not_ends_with: String
-  gallery: String
-
-  """All values that are not equal to given value."""
-  gallery_not: String
-
-  """All values that are contained in given list."""
-  gallery_in: [String!]
-
-  """All values that are not contained in given list."""
-  gallery_not_in: [String!]
-
-  """All values less than the given value."""
-  gallery_lt: String
-
-  """All values less than or equal the given value."""
-  gallery_lte: String
-
-  """All values greater than the given value."""
-  gallery_gt: String
-
-  """All values greater than or equal the given value."""
-  gallery_gte: String
-
-  """All values containing the given string."""
-  gallery_contains: String
-
-  """All values not containing the given string."""
-  gallery_not_contains: String
-
-  """All values starting with the given string."""
-  gallery_starts_with: String
-
-  """All values not starting with the given string."""
-  gallery_not_starts_with: String
-
-  """All values ending with the given string."""
-  gallery_ends_with: String
-
-  """All values not ending with the given string."""
-  gallery_not_ends_with: String
   description: String
 
   """All values that are not equal to given value."""
@@ -1116,7 +1075,6 @@ input ListingUpdateInput {
   name: String
   category: String
   hero: String
-  gallery: String
   description: String
   price: Int
   guests: Int
@@ -1133,7 +1091,6 @@ input ListingUpdateManyDataInput {
   name: String
   category: String
   hero: String
-  gallery: String
   description: String
   price: Int
   guests: Int
@@ -1147,7 +1104,6 @@ input ListingUpdateManyMutationInput {
   name: String
   category: String
   hero: String
-  gallery: String
   description: String
   price: Int
   guests: Int
@@ -1192,7 +1148,6 @@ input ListingUpdateWithoutAuthorDataInput {
   name: String
   category: String
   hero: String
-  gallery: String
   description: String
   price: Int
   guests: Int
@@ -1208,7 +1163,6 @@ input ListingUpdateWithoutBookingDataInput {
   name: String
   category: String
   hero: String
-  gallery: String
   description: String
   price: Int
   guests: Int
@@ -1224,7 +1178,6 @@ input ListingUpdateWithoutReviewsDataInput {
   name: String
   category: String
   hero: String
-  gallery: String
   description: String
   price: Int
   guests: Int
@@ -1426,46 +1379,6 @@ input ListingWhereInput {
 
   """All values not ending with the given string."""
   hero_not_ends_with: String
-  gallery: String
-
-  """All values that are not equal to given value."""
-  gallery_not: String
-
-  """All values that are contained in given list."""
-  gallery_in: [String!]
-
-  """All values that are not contained in given list."""
-  gallery_not_in: [String!]
-
-  """All values less than the given value."""
-  gallery_lt: String
-
-  """All values less than or equal the given value."""
-  gallery_lte: String
-
-  """All values greater than the given value."""
-  gallery_gt: String
-
-  """All values greater than or equal the given value."""
-  gallery_gte: String
-
-  """All values containing the given string."""
-  gallery_contains: String
-
-  """All values not containing the given string."""
-  gallery_not_contains: String
-
-  """All values starting with the given string."""
-  gallery_starts_with: String
-
-  """All values not starting with the given string."""
-  gallery_not_starts_with: String
-
-  """All values ending with the given string."""
-  gallery_ends_with: String
-
-  """All values not ending with the given string."""
-  gallery_not_ends_with: String
   description: String
 
   """All values that are not equal to given value."""

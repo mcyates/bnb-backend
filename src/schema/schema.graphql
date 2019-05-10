@@ -1,3 +1,5 @@
+scalar Upload
+
 type Query {
 	users(
 		query: String
@@ -37,7 +39,7 @@ type Mutation {
 	createReview(data: CreateReviewInput): Review!
 	updateReview(id: ID!, data: UpdateReviewInput): Review!
 	deleteReview(id: ID!): Review!
-	createUser(data: CreateUserInput): AuthPayload!
+	createUser(data: CreateUserInput!): AuthPayload!
 	loginUser(data: LoginUserInput): AuthPayload!
 	updateUser(data: UpdateUserInput!): User!
 	deleteUser: User!
@@ -78,8 +80,7 @@ input UpdateUserInput {
 input CreateListingInput {
 	name: String!
 	category: String
-	hero: String
-	gallery: [String]
+	hero: Upload
 	description: String
 	price: Int!
 	guests: Int
@@ -92,8 +93,7 @@ input CreateListingInput {
 input UpdateListingInput {
 	name: String
 	category: String
-	hero: String
-	gallery: [String]
+	hero: Upload
 	description: String
 	price: Int
 	guests: Int
@@ -141,8 +141,7 @@ type Listing {
 	booking: Booking
 	name: String!
 	category: String!
-	hero: String!
-	gallery: [String!]!
+	hero: Upload!
 	description: String!
 	price: Int!
 	guests: Int!
@@ -161,7 +160,6 @@ type Booking {
 	startDate: String!
 	endDate: String!
 }
-
 
 enum UserOrderByInput {
 	id_ASC

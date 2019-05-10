@@ -3,6 +3,7 @@ import helmet from "helmet";
 import rateLimit from "express-rate-limit";
 import prisma from "./prisma";
 import { resolvers } from "./resolvers/index";
+
 const pubsub = new PubSub();
 
 const server: GraphQLServer = new GraphQLServer({

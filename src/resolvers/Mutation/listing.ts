@@ -1,7 +1,8 @@
-import getUserId from '../../utils/getUserId';
+import getUserId from "../../utils/getUserId";
+import { uploadImage } from "../../cloudinary";
 
 export const listing = {
-  async createListing(
+	async createListing(
 		parent: any,
 		args: { data: any },
 		{ prisma, request }: any,
@@ -9,13 +10,20 @@ export const listing = {
 	) {
 		const userId = getUserId(request);
 
-		const { author, published } = args.data;
+
+		const { author, published, hero } = args.data;
+
 		const userExists = await prisma.exists.User({ id: userId });
 
 		if (!userExists) {
 			throw new Error("User not found");
 		}
-		console.log('1')
+
+
+		if (hero) {
+			args.data.hero = uploadImage(hero);
+		}
+
 		const Listing = await prisma.mutation
 			.createListing(
 				{
@@ -37,13 +45,17 @@ export const listing = {
 		parent: any,
 		args: {
 			id: string;
-			data: { title: string; body: string; published: boolean };
+			data: any;
 		},
 		{ prisma, request }: any,
 		info: any
 	) {
 		const { id, data } = args;
 		const userId = getUserId(request);
+
+		if (data.hero) {
+			data.hero = uploadImage(data.hero);
+		}
 
 		const ListingExists = await prisma.exists.Listing({
 			id,
@@ -108,5 +120,5 @@ export const listing = {
 			.catch((e: void) => console.error(e));
 
 		return Listing;
-	},
-}
+	}
+};
