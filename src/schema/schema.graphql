@@ -13,7 +13,7 @@ type Query {
 		first: Int
 		skip: Int
 		after: ID
-		orderBy: UserOrderByInput
+		orderBy: ListingOrderByInput
 	): [Listing!]!
 	reviews(
 		first: Int
@@ -21,6 +21,7 @@ type Query {
 		after: ID
 		orderBy: UserOrderByInput
 	): [Review!]!
+	mylistings(first: Int, skip: Int, after: ID, orderBy: ListingOrderByInput): [Listing!]!
 	mybookings(
 		first: Int
 		skip: Int
@@ -174,6 +175,35 @@ enum UserOrderByInput {
 	createdAt_DESC
 	updatedAt_ASC
 	updatedAt_DESC
+}
+
+enum ListingOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  category_ASC
+  category_DESC
+  hero_ASC
+  hero_DESC
+  description_ASC
+  description_DESC
+  price_ASC
+  price_DESC
+  guests_ASC
+  guests_DESC
+  beds_ASC
+  beds_DESC
+  baths_ASC
+  baths_DESC
+  amenities_ASC
+  amenities_DESC
+  published_ASC
+  published_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 enum BookingOrderByInput {

@@ -125,6 +125,35 @@ const Query = {
 		const bookings = await prisma.query.bookings(opArgs, info);
 
 		return bookings;
+	},
+	async mylistings(
+		parent: any,
+		args: {
+			first: number;
+			skip: number;
+			after: string;
+			orderBy: string;
+		},
+		{prisma, request}:Context,
+		info: any
+	) {
+		const { first, skip, after, orderBy } = args;
+		const userId = getUserId(request, true);
+
+		const opArgs: any = {
+			where: {
+				author: {
+					id: userId
+				}
+			},
+			first,
+			skip,
+			after,
+			orderBy
+		}
+
+		const listings = await prisma.query.listings(opArgs, info);
+		return listings;
 	}
 };
 
