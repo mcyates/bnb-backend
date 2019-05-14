@@ -10,12 +10,15 @@ export const listing = {
 	) {
 		const userId = getUserId(request);
 
+
 		const { author, published, hero } = args.data;
+
 		const userExists = await prisma.exists.User({ id: userId });
 
 		if (!userExists) {
 			throw new Error("User not found");
 		}
+
 
 		if (hero) {
 			args.data.hero = uploadImage(hero);
