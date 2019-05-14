@@ -28,6 +28,7 @@ type Query {
 		after: ID
 		orderBy: BookingOrderByInput
 	): [Booking!]!
+	listing(id: ID!): Listing!
 }
 
 type Mutation {
@@ -140,14 +141,14 @@ type Listing {
 	author: User!
 	reviews: [Review!]!
 	booking: Booking
-	name: String!
-	category: String!
-	hero: Upload!
-	description: String!
-	price: Int!
-	guests: Int!
-	beds: Int!
-	baths: Int!
+	name: String
+	category: String
+	hero: Upload
+	description: String
+	price: Int
+	guests: Int
+	beds: Int
+	baths: Int
 	amenities: String
 	published: Boolean!
 	createdAt: String!
