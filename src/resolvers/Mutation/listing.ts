@@ -21,7 +21,8 @@ export const listing = {
 
 
 		if (hero) {
-			args.data.hero = uploadImage(hero);
+			args.data.heroUrl = await uploadImage(hero);
+			args.data.hero = null;
 		}
 
 		const Listing = await prisma.mutation
