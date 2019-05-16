@@ -22,10 +22,13 @@
   "homepage": "https://github.com/M-C-Yates/bnb-backend#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "cloudinary": "^1.14.0",
+    "cors": "^2.8.5",
     "env-cmd": "^8.0.2",
     "express-rate-limit": "^3.5.0",
     "graphql": "^14.2.1",
     "graphql-import": "^0.7.1",
+    "graphql-upload": "^8.0.6",
     "graphql-yoga": "^1.17.4",
     "helmet": "^3.17.0",
     "jsonwebtoken": "^8.5.1",

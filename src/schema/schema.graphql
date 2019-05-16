@@ -1,3 +1,5 @@
+scalar Upload
+
 type Query {
 	users(
 		query: String
@@ -11,7 +13,7 @@ type Query {
 		first: Int
 		skip: Int
 		after: ID
-		orderBy: UserOrderByInput
+		orderBy: ListingOrderByInput
 	): [Listing!]!
 	reviews(
 		first: Int
@@ -19,12 +21,14 @@ type Query {
 		after: ID
 		orderBy: UserOrderByInput
 	): [Review!]!
+	mylistings(first: Int, skip: Int, after: ID, orderBy: ListingOrderByInput): [Listing!]!
 	mybookings(
 		first: Int
 		skip: Int
 		after: ID
 		orderBy: BookingOrderByInput
 	): [Booking!]!
+	listing(id: ID!): Listing!
 }
 
 type Mutation {
@@ -37,7 +41,7 @@ type Mutation {
 	createReview(data: CreateReviewInput): Review!
 	updateReview(id: ID!, data: UpdateReviewInput): Review!
 	deleteReview(id: ID!): Review!
-	createUser(data: CreateUserInput): AuthPayload!
+	createUser(data: CreateUserInput!): AuthPayload!
 	loginUser(data: LoginUserInput): AuthPayload!
 	updateUser(data: UpdateUserInput!): User!
 	deleteUser: User!
@@ -78,8 +82,8 @@ input UpdateUserInput {
 input CreateListingInput {
 	name: String!
 	category: String
-	hero: String
-	gallery: [String]
+	hero: Upload
+	heroUrl: String
 	description: String
 	price: Int!
 	guests: Int
@@ -92,8 +96,7 @@ input CreateListingInput {
 input UpdateListingInput {
 	name: String
 	category: String
-	hero: String
-	gallery: [String]
+	hero: Upload
 	description: String
 	price: Int
 	guests: Int
@@ -139,15 +142,15 @@ type Listing {
 	author: User!
 	reviews: [Review!]!
 	booking: Booking
-	name: String!
-	category: String!
-	hero: String!
-	gallery: [String!]!
-	description: String!
-	price: Int!
-	guests: Int!
-	beds: Int!
-	baths: Int!
+	name: String
+	category: String
+	heroUrl: String
+	hero: Upload
+	description: String
+	price: Int
+	guests: Int
+	beds: Int
+	baths: Int
 	amenities: String
 	published: Boolean!
 	createdAt: String!
@@ -162,7 +165,6 @@ type Booking {
 	endDate: String!
 }
 
-
 enum UserOrderByInput {
 	id_ASC
 	id_DESC
@@ -176,6 +178,35 @@ enum UserOrderByInput {
 	createdAt_DESC
 	updatedAt_ASC
 	updatedAt_DESC
+}
+
+enum ListingOrderByInput {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  category_ASC
+  category_DESC
+  hero_ASC
+  hero_DESC
+  description_ASC
+  description_DESC
+  price_ASC
+  price_DESC
+  guests_ASC
+  guests_DESC
+  beds_ASC
+  beds_DESC
+  baths_ASC
+  baths_DESC
+  amenities_ASC
+  amenities_DESC
+  published_ASC
+  published_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
 }
 
 enum BookingOrderByInput {
