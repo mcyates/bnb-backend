@@ -10,7 +10,6 @@ export const listing = {
 	) {
 		const userId = getUserId(request);
 
-
 		const { author, published, hero } = args.data;
 
 		const userExists = await prisma.exists.User({ id: userId });
@@ -18,7 +17,6 @@ export const listing = {
 		if (!userExists) {
 			throw new Error("User not found");
 		}
-
 
 		if (hero) {
 			args.data.heroUrl = await uploadImage(hero);
@@ -52,10 +50,12 @@ export const listing = {
 		info: any
 	) {
 		const { id, data } = args;
+		const { hero } = args.data;
 		const userId = getUserId(request);
 
-		if (data.hero) {
-			data.hero = uploadImage(data.hero);
+		if (hero) {
+			args.data.heroUrl = await uploadImage(hero);
+			args.data.hero = null;
 		}
 
 		const ListingExists = await prisma.exists.Listing({

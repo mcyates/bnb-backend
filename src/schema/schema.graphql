@@ -36,7 +36,7 @@ type Mutation {
 	updateBooking(id: ID!, data: UpdateBookingInput): Booking!
 	deleteBooking(id: ID!): Booking!
 	createListing(data: CreateListingInput): Listing!
-	updateListing(id: ID!, data: UpdateListingInput!): Listing!
+	updateListing(id: ID!, data: UpdateListingInput): Listing!
 	deleteListing(id: ID!): Listing!
 	createReview(data: CreateReviewInput): Review!
 	updateReview(id: ID!, data: UpdateReviewInput): Review!
@@ -83,7 +83,6 @@ input CreateListingInput {
 	name: String!
 	category: String
 	hero: Upload
-	heroUrl: String
 	description: String
 	price: Int!
 	guests: Int
