@@ -7,27 +7,27 @@ type Query {
 		skip: Int
 		after: ID
 		orderBy: UserOrderByInput
-	): [User!]!
+	): [User]!
 	listings(
 		query: String
 		first: Int
 		skip: Int
 		after: ID
 		orderBy: ListingOrderByInput
-	): [Listing!]!
+	): [Listing]!
 	reviews(
 		first: Int
 		skip: Int
 		after: ID
 		orderBy: UserOrderByInput
-	): [Review!]!
+	): [Review]!
 	mylistings(first: Int, skip: Int, after: ID, orderBy: ListingOrderByInput): [Listing!]!
 	mybookings(
 		first: Int
 		skip: Int
 		after: ID
 		orderBy: BookingOrderByInput
-	): [Booking!]!
+	): [Booking]!
 	listing(id: ID!): Listing!
 }
 

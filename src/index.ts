@@ -18,8 +18,8 @@ const server: GraphQLServer = new GraphQLServer({
 	}
 });
 const limiter = new rateLimit({
-	windowMs: 15 * 60 * 1000,
-	max: 200
+	windowMs: 60 * 1000,
+	max: 250
 });
 
 server.express.use(cors())
