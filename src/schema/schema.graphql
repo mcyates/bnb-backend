@@ -121,7 +121,7 @@ type User {
 	password: String!
 	listings: [Listing!]!
 	reviews: [Review!]!
-	booking: Booking!
+	bookings: [Booking]!
 	createdAt: String!
 	updatedAt: String!
 }
@@ -140,7 +140,7 @@ type Listing {
 	id: ID!
 	author: User!
 	reviews: [Review!]!
-	booking: Booking
+	bookings: [Booking!]!
 	name: String
 	category: String
 	heroUrl: String

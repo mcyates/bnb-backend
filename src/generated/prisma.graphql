@@ -1,5 +1,5 @@
 # source: http://localhost:4466
-# timestamp: Thu May 16 2019 16:22:54 GMT-0400 (Eastern Daylight Time)
+# timestamp: Fri May 24 2019 17:40:24 GMT-0400 (Eastern Daylight Time)
 
 type AggregateBooking {
   count: Int!
@@ -45,7 +45,7 @@ input BookingCreateInput {
   startDate: String!
   endDate: String!
   author: UserCreateOneWithoutBookingsInput!
-  listing: ListingCreateOneWithoutBookingInput!
+  listing: ListingCreateOneWithoutBookingsInput!
 }
 
 input BookingCreateManyWithoutAuthorInput {
@@ -53,16 +53,16 @@ input BookingCreateManyWithoutAuthorInput {
   connect: [BookingWhereUniqueInput!]
 }
 
-input BookingCreateOneWithoutListingInput {
-  create: BookingCreateWithoutListingInput
-  connect: BookingWhereUniqueInput
+input BookingCreateManyWithoutListingInput {
+  create: [BookingCreateWithoutListingInput!]
+  connect: [BookingWhereUniqueInput!]
 }
 
 input BookingCreateWithoutAuthorInput {
   id: ID
   startDate: String!
   endDate: String!
-  listing: ListingCreateOneWithoutBookingInput!
+  listing: ListingCreateOneWithoutBookingsInput!
 }
 
 input BookingCreateWithoutListingInput {
@@ -268,7 +268,7 @@ input BookingUpdateInput {
   startDate: String
   endDate: String
   author: UserUpdateOneRequiredWithoutBookingsInput
-  listing: ListingUpdateOneRequiredWithoutBookingInput
+  listing: ListingUpdateOneRequiredWithoutBookingsInput
 }
 
 input BookingUpdateManyDataInput {
@@ -293,24 +293,27 @@ input BookingUpdateManyWithoutAuthorInput {
   upsert: [BookingUpsertWithWhereUniqueWithoutAuthorInput!]
 }
 
+input BookingUpdateManyWithoutListingInput {
+  create: [BookingCreateWithoutListingInput!]
+  connect: [BookingWhereUniqueInput!]
+  set: [BookingWhereUniqueInput!]
+  disconnect: [BookingWhereUniqueInput!]
+  delete: [BookingWhereUniqueInput!]
+  update: [BookingUpdateWithWhereUniqueWithoutListingInput!]
+  updateMany: [BookingUpdateManyWithWhereNestedInput!]
+  deleteMany: [BookingScalarWhereInput!]
+  upsert: [BookingUpsertWithWhereUniqueWithoutListingInput!]
+}
+
 input BookingUpdateManyWithWhereNestedInput {
   where: BookingScalarWhereInput!
   data: BookingUpdateManyDataInput!
 }
 
-input BookingUpdateOneWithoutListingInput {
-  create: BookingCreateWithoutListingInput
-  connect: BookingWhereUniqueInput
-  disconnect: Boolean
-  delete: Boolean
-  update: BookingUpdateWithoutListingDataInput
-  upsert: BookingUpsertWithoutListingInput
-}
-
 input BookingUpdateWithoutAuthorDataInput {
   startDate: String
   endDate: String
-  listing: ListingUpdateOneRequiredWithoutBookingInput
+  listing: ListingUpdateOneRequiredWithoutBookingsInput
 }
 
 input BookingUpdateWithoutListingDataInput {
@@ -324,15 +327,21 @@ input BookingUpdateWithWhereUniqueWithoutAuthorInput {
   data: BookingUpdateWithoutAuthorDataInput!
 }
 
-input BookingUpsertWithoutListingInput {
-  update: BookingUpdateWithoutListingDataInput!
-  create: BookingCreateWithoutListingInput!
+input BookingUpdateWithWhereUniqueWithoutListingInput {
+  where: BookingWhereUniqueInput!
+  data: BookingUpdateWithoutListingDataInput!
 }
 
 input BookingUpsertWithWhereUniqueWithoutAuthorInput {
   where: BookingWhereUniqueInput!
   update: BookingUpdateWithoutAuthorDataInput!
   create: BookingCreateWithoutAuthorInput!
+}
+
+input BookingUpsertWithWhereUniqueWithoutListingInput {
+  where: BookingWhereUniqueInput!
+  update: BookingUpdateWithoutListingDataInput!
+  create: BookingCreateWithoutListingInput!
 }
 
 input BookingWhereInput {
@@ -481,7 +490,7 @@ type Listing implements Node {
   id: ID!
   author: User!
   reviews(where: ReviewWhereInput, orderBy: ReviewOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Review!]
-  booking: Booking
+  bookings(where: BookingWhereInput, orderBy: BookingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Booking!]
   name: String!
   category: String
   hero: String
@@ -522,7 +531,7 @@ input ListingCreateInput {
   published: Boolean!
   author: UserCreateOneWithoutListingsInput!
   reviews: ReviewCreateManyWithoutListingInput
-  booking: BookingCreateOneWithoutListingInput
+  bookings: BookingCreateManyWithoutListingInput
 }
 
 input ListingCreateManyWithoutAuthorInput {
@@ -530,8 +539,8 @@ input ListingCreateManyWithoutAuthorInput {
   connect: [ListingWhereUniqueInput!]
 }
 
-input ListingCreateOneWithoutBookingInput {
-  create: ListingCreateWithoutBookingInput
+input ListingCreateOneWithoutBookingsInput {
+  create: ListingCreateWithoutBookingsInput
   connect: ListingWhereUniqueInput
 }
 
@@ -554,10 +563,10 @@ input ListingCreateWithoutAuthorInput {
   amenities: String
   published: Boolean!
   reviews: ReviewCreateManyWithoutListingInput
-  booking: BookingCreateOneWithoutListingInput
+  bookings: BookingCreateManyWithoutListingInput
 }
 
-input ListingCreateWithoutBookingInput {
+input ListingCreateWithoutBookingsInput {
   id: ID
   name: String!
   category: String
@@ -588,7 +597,7 @@ input ListingCreateWithoutReviewsInput {
   amenities: String
   published: Boolean!
   author: UserCreateOneWithoutListingsInput!
-  booking: BookingCreateOneWithoutListingInput
+  bookings: BookingCreateManyWithoutListingInput
 }
 
 """An edge in a connection."""
@@ -1126,7 +1135,7 @@ input ListingUpdateInput {
   published: Boolean
   author: UserUpdateOneRequiredWithoutListingsInput
   reviews: ReviewUpdateManyWithoutListingInput
-  booking: BookingUpdateOneWithoutListingInput
+  bookings: BookingUpdateManyWithoutListingInput
 }
 
 input ListingUpdateManyDataInput {
@@ -1174,11 +1183,11 @@ input ListingUpdateManyWithWhereNestedInput {
   data: ListingUpdateManyDataInput!
 }
 
-input ListingUpdateOneRequiredWithoutBookingInput {
-  create: ListingCreateWithoutBookingInput
+input ListingUpdateOneRequiredWithoutBookingsInput {
+  create: ListingCreateWithoutBookingsInput
   connect: ListingWhereUniqueInput
-  update: ListingUpdateWithoutBookingDataInput
-  upsert: ListingUpsertWithoutBookingInput
+  update: ListingUpdateWithoutBookingsDataInput
+  upsert: ListingUpsertWithoutBookingsInput
 }
 
 input ListingUpdateOneRequiredWithoutReviewsInput {
@@ -1201,10 +1210,10 @@ input ListingUpdateWithoutAuthorDataInput {
   amenities: String
   published: Boolean
   reviews: ReviewUpdateManyWithoutListingInput
-  booking: BookingUpdateOneWithoutListingInput
+  bookings: BookingUpdateManyWithoutListingInput
 }
 
-input ListingUpdateWithoutBookingDataInput {
+input ListingUpdateWithoutBookingsDataInput {
   name: String
   category: String
   hero: String
@@ -1233,7 +1242,7 @@ input ListingUpdateWithoutReviewsDataInput {
   amenities: String
   published: Boolean
   author: UserUpdateOneRequiredWithoutListingsInput
-  booking: BookingUpdateOneWithoutListingInput
+  bookings: BookingUpdateManyWithoutListingInput
 }
 
 input ListingUpdateWithWhereUniqueWithoutAuthorInput {
@@ -1241,9 +1250,9 @@ input ListingUpdateWithWhereUniqueWithoutAuthorInput {
   data: ListingUpdateWithoutAuthorDataInput!
 }
 
-input ListingUpsertWithoutBookingInput {
-  update: ListingUpdateWithoutBookingDataInput!
-  create: ListingCreateWithoutBookingInput!
+input ListingUpsertWithoutBookingsInput {
+  update: ListingUpdateWithoutBookingsDataInput!
+  create: ListingCreateWithoutBookingsInput!
 }
 
 input ListingUpsertWithoutReviewsInput {
@@ -1686,7 +1695,9 @@ input ListingWhereInput {
   reviews_every: ReviewWhereInput
   reviews_some: ReviewWhereInput
   reviews_none: ReviewWhereInput
-  booking: BookingWhereInput
+  bookings_every: BookingWhereInput
+  bookings_some: BookingWhereInput
+  bookings_none: BookingWhereInput
 }
 
 input ListingWhereUniqueInput {

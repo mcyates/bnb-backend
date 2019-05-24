@@ -23,7 +23,7 @@ type Listing {
   id: ID! @id
   author: User! @relation(link: INLINE, name: "ListingToUser", onDelete: SET_NULL)
   reviews: [Review!]! @relation(name: "ReviewToListing", onDelete: CASCADE)
-  booking: Booking @relation(link: TABLE,name: "BookingToListing", onDelete: CASCADE)
+  bookings: [Booking!]! @relation(link: TABLE,name: "BookingToListing", onDelete: CASCADE)
   name: String! @unique
   category: String
   hero: String
