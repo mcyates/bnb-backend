@@ -14,6 +14,7 @@ type Review {
   id: ID! @id
   author: User! @relation(name: "ReviewToUser", onDelete: SET_NULL)
   listing: Listing! @relation(name: "ReviewToListing", onDelete: SET_NULL)
+  rating: Float!
   text: String!
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
@@ -25,6 +26,7 @@ type Listing {
   reviews: [Review!]! @relation(name: "ReviewToListing", onDelete: CASCADE)
   bookings: [Booking!]! @relation(link: TABLE,name: "BookingToListing", onDelete: CASCADE)
   name: String! @unique
+  rating: Float
   category: String
   hero: String
   heroUrl: String

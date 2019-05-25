@@ -1,5 +1,5 @@
 # source: http://localhost:4466
-# timestamp: Fri May 24 2019 17:40:24 GMT-0400 (Eastern Daylight Time)
+# timestamp: Sat May 25 2019 16:05:02 GMT-0400 (Eastern Daylight Time)
 
 type AggregateBooking {
   count: Int!
@@ -492,6 +492,7 @@ type Listing implements Node {
   reviews(where: ReviewWhereInput, orderBy: ReviewOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Review!]
   bookings(where: BookingWhereInput, orderBy: BookingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Booking!]
   name: String!
+  rating: Float
   category: String
   hero: String
   heroUrl: String
@@ -519,6 +520,7 @@ type ListingConnection {
 input ListingCreateInput {
   id: ID
   name: String!
+  rating: Float
   category: String
   hero: String
   heroUrl: String
@@ -552,6 +554,7 @@ input ListingCreateOneWithoutReviewsInput {
 input ListingCreateWithoutAuthorInput {
   id: ID
   name: String!
+  rating: Float
   category: String
   hero: String
   heroUrl: String
@@ -569,6 +572,7 @@ input ListingCreateWithoutAuthorInput {
 input ListingCreateWithoutBookingsInput {
   id: ID
   name: String!
+  rating: Float
   category: String
   hero: String
   heroUrl: String
@@ -586,6 +590,7 @@ input ListingCreateWithoutBookingsInput {
 input ListingCreateWithoutReviewsInput {
   id: ID
   name: String!
+  rating: Float
   category: String
   hero: String
   heroUrl: String
@@ -614,6 +619,8 @@ enum ListingOrderByInput {
   id_DESC
   name_ASC
   name_DESC
+  rating_ASC
+  rating_DESC
   category_ASC
   category_DESC
   hero_ASC
@@ -643,6 +650,7 @@ enum ListingOrderByInput {
 type ListingPreviousValues {
   id: ID!
   name: String!
+  rating: Float
   category: String
   hero: String
   heroUrl: String
@@ -746,6 +754,28 @@ input ListingScalarWhereInput {
 
   """All values not ending with the given string."""
   name_not_ends_with: String
+  rating: Float
+
+  """All values that are not equal to given value."""
+  rating_not: Float
+
+  """All values that are contained in given list."""
+  rating_in: [Float!]
+
+  """All values that are not contained in given list."""
+  rating_not_in: [Float!]
+
+  """All values less than the given value."""
+  rating_lt: Float
+
+  """All values less than or equal the given value."""
+  rating_lte: Float
+
+  """All values greater than the given value."""
+  rating_gt: Float
+
+  """All values greater than or equal the given value."""
+  rating_gte: Float
   category: String
 
   """All values that are not equal to given value."""
@@ -1123,6 +1153,7 @@ input ListingSubscriptionWhereInput {
 
 input ListingUpdateInput {
   name: String
+  rating: Float
   category: String
   hero: String
   heroUrl: String
@@ -1140,6 +1171,7 @@ input ListingUpdateInput {
 
 input ListingUpdateManyDataInput {
   name: String
+  rating: Float
   category: String
   hero: String
   heroUrl: String
@@ -1154,6 +1186,7 @@ input ListingUpdateManyDataInput {
 
 input ListingUpdateManyMutationInput {
   name: String
+  rating: Float
   category: String
   hero: String
   heroUrl: String
@@ -1199,6 +1232,7 @@ input ListingUpdateOneRequiredWithoutReviewsInput {
 
 input ListingUpdateWithoutAuthorDataInput {
   name: String
+  rating: Float
   category: String
   hero: String
   heroUrl: String
@@ -1215,6 +1249,7 @@ input ListingUpdateWithoutAuthorDataInput {
 
 input ListingUpdateWithoutBookingsDataInput {
   name: String
+  rating: Float
   category: String
   hero: String
   heroUrl: String
@@ -1231,6 +1266,7 @@ input ListingUpdateWithoutBookingsDataInput {
 
 input ListingUpdateWithoutReviewsDataInput {
   name: String
+  rating: Float
   category: String
   hero: String
   heroUrl: String
@@ -1355,6 +1391,28 @@ input ListingWhereInput {
 
   """All values not ending with the given string."""
   name_not_ends_with: String
+  rating: Float
+
+  """All values that are not equal to given value."""
+  rating_not: Float
+
+  """All values that are contained in given list."""
+  rating_in: [Float!]
+
+  """All values that are not contained in given list."""
+  rating_not_in: [Float!]
+
+  """All values less than the given value."""
+  rating_lt: Float
+
+  """All values less than or equal the given value."""
+  rating_lte: Float
+
+  """All values greater than the given value."""
+  rating_gt: Float
+
+  """All values greater than or equal the given value."""
+  rating_gte: Float
   category: String
 
   """All values that are not equal to given value."""
@@ -1795,6 +1853,7 @@ type Review implements Node {
   id: ID!
   author: User!
   listing: Listing!
+  rating: Float!
   text: String!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -1812,6 +1871,7 @@ type ReviewConnection {
 
 input ReviewCreateInput {
   id: ID
+  rating: Float!
   text: String!
   author: UserCreateOneWithoutReviewsInput!
   listing: ListingCreateOneWithoutReviewsInput!
@@ -1829,12 +1889,14 @@ input ReviewCreateManyWithoutListingInput {
 
 input ReviewCreateWithoutAuthorInput {
   id: ID
+  rating: Float!
   text: String!
   listing: ListingCreateOneWithoutReviewsInput!
 }
 
 input ReviewCreateWithoutListingInput {
   id: ID
+  rating: Float!
   text: String!
   author: UserCreateOneWithoutReviewsInput!
 }
@@ -1851,6 +1913,8 @@ type ReviewEdge {
 enum ReviewOrderByInput {
   id_ASC
   id_DESC
+  rating_ASC
+  rating_DESC
   text_ASC
   text_DESC
   createdAt_ASC
@@ -1861,6 +1925,7 @@ enum ReviewOrderByInput {
 
 type ReviewPreviousValues {
   id: ID!
+  rating: Float!
   text: String!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -1915,6 +1980,28 @@ input ReviewScalarWhereInput {
 
   """All values not ending with the given string."""
   id_not_ends_with: ID
+  rating: Float
+
+  """All values that are not equal to given value."""
+  rating_not: Float
+
+  """All values that are contained in given list."""
+  rating_in: [Float!]
+
+  """All values that are not contained in given list."""
+  rating_not_in: [Float!]
+
+  """All values less than the given value."""
+  rating_lt: Float
+
+  """All values less than or equal the given value."""
+  rating_lte: Float
+
+  """All values greater than the given value."""
+  rating_gt: Float
+
+  """All values greater than or equal the given value."""
+  rating_gte: Float
   text: String
 
   """All values that are not equal to given value."""
@@ -2039,16 +2126,19 @@ input ReviewSubscriptionWhereInput {
 }
 
 input ReviewUpdateInput {
+  rating: Float
   text: String
   author: UserUpdateOneRequiredWithoutReviewsInput
   listing: ListingUpdateOneRequiredWithoutReviewsInput
 }
 
 input ReviewUpdateManyDataInput {
+  rating: Float
   text: String
 }
 
 input ReviewUpdateManyMutationInput {
+  rating: Float
   text: String
 }
 
@@ -2082,11 +2172,13 @@ input ReviewUpdateManyWithWhereNestedInput {
 }
 
 input ReviewUpdateWithoutAuthorDataInput {
+  rating: Float
   text: String
   listing: ListingUpdateOneRequiredWithoutReviewsInput
 }
 
 input ReviewUpdateWithoutListingDataInput {
+  rating: Float
   text: String
   author: UserUpdateOneRequiredWithoutReviewsInput
 }
@@ -2162,6 +2254,28 @@ input ReviewWhereInput {
 
   """All values not ending with the given string."""
   id_not_ends_with: ID
+  rating: Float
+
+  """All values that are not equal to given value."""
+  rating_not: Float
+
+  """All values that are contained in given list."""
+  rating_in: [Float!]
+
+  """All values that are not contained in given list."""
+  rating_not_in: [Float!]
+
+  """All values less than the given value."""
+  rating_lt: Float
+
+  """All values less than or equal the given value."""
+  rating_lte: Float
+
+  """All values greater than the given value."""
+  rating_gt: Float
+
+  """All values greater than or equal the given value."""
+  rating_gte: Float
   text: String
 
   """All values that are not equal to given value."""

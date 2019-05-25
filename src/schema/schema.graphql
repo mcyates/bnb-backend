@@ -107,6 +107,7 @@ input UpdateListingInput {
 
 input CreateReviewInput {
 	text: String!
+	rating: Float!
 	author: ID!
 	listing: ID!
 }
@@ -139,7 +140,8 @@ type Review {
 type Listing {
 	id: ID!
 	author: User!
-	reviews: [Review!]!
+	rating: Float
+	reviews: [Review]!
 	bookings: [Booking!]!
 	name: String
 	category: String
